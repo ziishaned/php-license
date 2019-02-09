@@ -3,13 +3,13 @@
 	<br> PHP License
 </h1>
 <p align="center">
-  <a href="https://codecov.io/gh/ziishaned/php-rsa">
-    <img src="https://img.shields.io/codecov/c/github/ziishaned/php-rsa.svg?style=flat" alt="Codecov" />
+  <a href="https://codecov.io/gh/ziishaned/php-license">
+    <img src="https://img.shields.io/codecov/c/github/ziishaned/php-license.svg?style=flat" alt="Codecov" />
   </a>
-  <a href="https://travis-ci.org/ziishaned/php-rsa">
-    <img src="https://api.travis-ci.com/ziishaned/php-rsa.svg?branch=master" alt="Build Status" />
+  <a href="https://travis-ci.org/ziishaned/php-license">
+    <img src="https://api.travis-ci.com/ziishaned/php-license.svg?branch=master" alt="Build Status" />
   </a>
-  <a href="https://twitter.com/home?status=PHP%20RSA%20by%20%40ziishaned%20http%3A//github.com/ziishaned/php-rsa">
+  <a href="https://twitter.com/home?status=PHP%20License%20by%20%40ziishaned%20http%3A//github.com/ziishaned/php-license">
     <img src="https://img.shields.io/badge/twitter-tweet-blue.svg?style=flat-square"/>
   </a>
   <a href="https://twitter.com/ziishaned">
@@ -48,7 +48,7 @@ Before running the following code make sure you have the `public_key` and `priva
 ```php
 <?php
 
-use Ziishaned\PhpRsa\PhpRsa;
+use Ziishaned\PhpLicense\PhpLicense;
 
 $data = [
   "firstName" => "John",
@@ -57,7 +57,7 @@ $data = [
 ];
 
 $privateKey = file_get_contents('path/to/private_key.pem');
-$license    = PhpRsa::generate($data, $privateKey);
+$license    = PhpLicense::generate($data, $privateKey);
 
 var_dump([
   "license" => $license,
@@ -77,12 +77,12 @@ The above code will output the following result:
 ```php
 <?php
 
-use Ziishaned\PhpRsa\PhpRsa;
+use Ziishaned\PhpLicense\PhpLicense;
 
 $license = 'agW4Riht6xHEfbpDaZUcTCmZVHgGgCnzXc0+nqLAMjuS6ouuGQVv/JqjAuo89tUgTu3F7Q+WProPcNm1aXdavxj3xOxTJ3e2w0NSS09sBZONxG9MzzofqvYPCnu/I1WMLgaRXiiNJcz5WtqFLFSdTgehqU5VLO+eDhfWUeZ0EJlCtCLPu19hP56/+24+/tmnh4ySLc9tV+YGLYtpmt7Gyf+h3sbMO0SJMwe+XSuuTcUsIUDg3AQUlj7c4ctwhkdYkRyyjj27U09CgpWWgU5b3sXSqZ3DFdTNaP8sIVH3Y39b7/o+Gx7WIHzngCnczK58L81LTVwnkyzSBqKUT5oq4A==';
 
 $publicKey     = file_get_contents('path/to/public_key.pem');
-$parsedLicense = PhpRsa::parse($license, $publicKey);
+$parsedLicense = PhpLicense::parse($license, $publicKey);
 
 var_dump([
   "parsedLicense" => $parsedLicense,
