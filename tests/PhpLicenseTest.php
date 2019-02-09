@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Ziishaned\PhpLicense\PhpLicense;
 
 /**
- * Class PhpRsaTest
+ * Class PhpLicenseTest
  *
  * @package Tests
  * @author  Zeeshan Ahmad <ziishaned@gmail.com>
