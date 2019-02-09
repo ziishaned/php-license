@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  * @package Tests
  * @author  Zeeshan Ahmad <ziishaned@gmail.com>
  */
-class DumperTest extends TestCase
+class PhpRsaTest extends TestCase
 {
   /**
    * @throws \Exception
