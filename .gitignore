@@ -1,0 +1,9 @@
+/vendor/
+/.idea/
+hugobot.phar
+.DS_Store
+example.php
+hugobot-cli.phar
+.phpunit.result.cache
+coverage.xml
+/coverage/

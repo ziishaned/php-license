@@ -1,0 +1,23 @@
+language: php
+
+sudo: false
+
+dist: trusty
+
+php:
+  - nightly
+  - 7.2
+
+before_script:
+  - PHP_VERSION=$(php -r 'echo phpversion();')
+  - echo $PHP_VERSION
+  - echo $TRAVIS_PHP_VERSION
+  - composer install --no-interaction --ignore-platform-reqs
+
+script:
+  - composer run test
+  - composer run phpstan
+  - composer run check-style
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
