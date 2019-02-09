@@ -16,18 +16,18 @@ class DumperTest extends TestCase
   /**
    * @throws \Exception
    */
-  public function testCanGetLicense()
-  {
-    $data       = [
-      "email" => "ziishaned@gmail.com",
-    ];
-    $publicKey  = file_get_contents(__DIR__ . '/keys/public_key.pem');
-    $privateKey = file_get_contents(__DIR__ . '/keys/private_key.pem');
+    public function testCanGetLicense()
+    {
+        $data       = [
+        "email" => "ziishaned@gmail.com",
+        ];
+        $publicKey  = file_get_contents(__DIR__ . '/keys/public_key.pem');
+        $privateKey = file_get_contents(__DIR__ . '/keys/private_key.pem');
 
-    $license       = PhpRsa::generate($data, $privateKey);
-    $parsedLicense = PhpRsa::parse($license, $publicKey);
+        $license       = PhpRsa::generate($data, $privateKey);
+        $parsedLicense = PhpRsa::parse($license, $publicKey);
 
-    $this->assertIsString($license);
-    $this->assertIsArray($parsedLicense);
-  }
+        $this->assertIsString($license);
+        $this->assertIsArray($parsedLicense);
+    }
 }

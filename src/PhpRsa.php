@@ -15,24 +15,24 @@ class PhpRsa
    * @return string
    * @throws \Exception
    */
-  public static function generate($data, $privateKey)
-  {
-    $key = openssl_pkey_get_private($privateKey);
-    if (!$key) {
-      throw new Exception("OpenSSL: Unable to get private key");
+    public static function generate($data, $privateKey)
+    {
+        $key = openssl_pkey_get_private($privateKey);
+        if (!$key) {
+            throw new Exception("OpenSSL: Unable to get private key");
+        }
+
+        $success = openssl_private_encrypt(json_encode($data), $signature, $key);
+        openssl_free_key($key);
+
+        if (!$success) {
+            throw new Exception("OpenSSL: Enable to generate signature");
+        }
+
+        $sign_b64 = base64_encode($signature);
+
+        return $sign_b64;
     }
-
-    $success = openssl_private_encrypt(json_encode($data), $signature, $key);
-    openssl_free_key($key);
-
-    if (!$success) {
-      throw new Exception("OpenSSL: Enable to generate signature");
-    }
-
-    $sign_b64 = base64_encode($signature);
-
-    return $sign_b64;
-  }
 
   /**
    * Parse license file.
@@ -43,22 +43,22 @@ class PhpRsa
    * @return string
    * @throws \Exception
    */
-  public static function parse($licenseKey, $publicKey)
-  {
-    $sign = base64_decode($licenseKey);
+    public static function parse($licenseKey, $publicKey)
+    {
+        $sign = base64_decode($licenseKey);
 
-    $key = openssl_pkey_get_public($publicKey);
-    if (!$key) {
-      throw new Exception("OpenSSL: Unable to get public key");
+        $key = openssl_pkey_get_public($publicKey);
+        if (!$key) {
+            throw new Exception("OpenSSL: Unable to get public key");
+        }
+
+        $success = openssl_public_decrypt($sign, $decryptedData, $publicKey);
+        openssl_free_key($key);
+
+        if (!$success) {
+            throw new Exception("OpenSSL: Enable to generate signature");
+        }
+
+        return json_decode($decryptedData, true);
     }
-
-    $success = openssl_public_decrypt($sign, $decryptedData, $publicKey);
-    openssl_free_key($key);
-
-    if (!$success) {
-      throw new Exception("OpenSSL: Enable to generate signature");
-    }
-
-    return json_decode($decryptedData, true);
-  }
 }
