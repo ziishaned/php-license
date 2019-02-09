@@ -41,7 +41,7 @@ Make sure OpenSSL is configured on your machine.
 ## Installation
 
 ```bash
-composer require php-license
+composer require ziishaned/php-license
 ```
 
 ## Usage
