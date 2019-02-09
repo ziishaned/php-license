@@ -17,7 +17,7 @@
   </a>
 </p>
 
-<p align="center"><code>php-license</code> is a library for generation and parsing license files.</p>
+<p align="center"><code>php-license</code> is a library for generating and parsing license files.</p>
 
 ## Generating Key Pair
 
