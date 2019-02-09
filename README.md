@@ -21,7 +21,8 @@
 
 ## Requirements
 
-* [OpenSSL](https://www.openssl.org/)
+* PHP >= 5.4
+* OpenSSL
 
 ## Generating Key Pair
 
