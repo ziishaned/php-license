@@ -24,14 +24,14 @@
 Make sure OpenSSL is configured on your machine.
 
 1. Generate the Private key file by running the following command:
-  ```bash
-  openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
-  ```
+   ```bash
+   openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
+   ```
 
 2. Run the following command to generate public key:
-  ```bash
-  openssl rsa -pubout -in private_key.pem -out public_key.pem
-  ```
+   ```bash
+   openssl rsa -pubout -in private_key.pem -out public_key.pem
+   ```
 
 ## Installation
 
