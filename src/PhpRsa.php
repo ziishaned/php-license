@@ -1,20 +1,20 @@
 <?php
 
-namespace Ziishaned\PhpRsa;
+namespace Ziishaned\PhpLicense;
 
 use Exception;
 
-class PhpRsa
+class PhpLicense
 {
-  /**
-   * Generate license file.
-   *
-   * @param array  $data
-   * @param string $privateKey
-   *
-   * @return string
-   * @throws \Exception
-   */
+    /**
+     * Generate license file.
+     *
+     * @param array  $data
+     * @param string $privateKey
+     *
+     * @return string
+     * @throws \Exception
+     */
     public static function generate($data, $privateKey)
     {
         $key = openssl_pkey_get_private($privateKey);
@@ -34,15 +34,15 @@ class PhpRsa
         return $sign_b64;
     }
 
-  /**
-   * Parse license file.
-   *
-   * @param string $licenseKey
-   * @param string $publicKey
-   *
-   * @return string
-   * @throws \Exception
-   */
+    /**
+     * Parse license file.
+     *
+     * @param string $licenseKey
+     * @param string $publicKey
+     *
+     * @return string
+     * @throws \Exception
+     */
     public static function parse($licenseKey, $publicKey)
     {
         $sign = base64_decode($licenseKey);

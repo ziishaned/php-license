@@ -2,8 +2,8 @@
 
 namespace Tests;
 
-use Ziishaned\PhpRsa\PhpRsa;
 use PHPUnit\Framework\TestCase;
+use Ziishaned\PhpLicense\PhpLicense;
 
 /**
  * Class PhpRsaTest
@@ -11,21 +11,21 @@ use PHPUnit\Framework\TestCase;
  * @package Tests
  * @author  Zeeshan Ahmad <ziishaned@gmail.com>
  */
-class PhpRsaTest extends TestCase
+class PhpLicenseTest extends TestCase
 {
-  /**
-   * @throws \Exception
-   */
+    /**
+     * @throws \Exception
+     */
     public function testCanGetLicense()
     {
         $data       = [
-          "email" => "ziishaned@gmail.com",
+            "email" => "ziishaned@gmail.com",
         ];
         $publicKey  = file_get_contents(__DIR__ . '/keys/public_key.pem');
         $privateKey = file_get_contents(__DIR__ . '/keys/private_key.pem');
 
-        $license       = PhpRsa::generate($data, $privateKey);
-        $parsedLicense = PhpRsa::parse($license, $publicKey);
+        $license       = PhpLicense::generate($data, $privateKey);
+        $parsedLicense = PhpLicense::parse($license, $publicKey);
 
         $this->assertIsString($license);
         $this->assertIsArray($parsedLicense);
