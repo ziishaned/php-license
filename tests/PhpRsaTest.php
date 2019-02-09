@@ -19,7 +19,7 @@ class PhpRsaTest extends TestCase
     public function testCanGetLicense()
     {
         $data       = [
-        "email" => "ziishaned@gmail.com",
+          "email" => "ziishaned@gmail.com",
         ];
         $publicKey  = file_get_contents(__DIR__ . '/keys/public_key.pem');
         $privateKey = file_get_contents(__DIR__ . '/keys/private_key.pem');
