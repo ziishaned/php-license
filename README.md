@@ -4,10 +4,10 @@
 </h1>
 <p align="center">
   <a href="https://codecov.io/gh/ziishaned/php-license">
-    <img src="https://img.shields.io/codecov/c/github/ziishaned/php-license.svg?style=flat" alt="Codecov" />
+    <img src="https://codecov.io/gh/ziishaned/php-license/branch/master/graph/badge.svg" alt="Codecov" />
   </a>
   <a href="https://travis-ci.org/ziishaned/php-license">
-    <img src="https://api.travis-ci.com/ziishaned/php-license.svg?branch=master" alt="Build Status" />
+    <img src="https://img.shields.io/travis/ziishaned/php-license.svg?style=flat" alt="Build Status" />
   </a>
   <a href="https://twitter.com/home?status=PHP%20License%20by%20%40ziishaned%20http%3A//github.com/ziishaned/php-license">
     <img src="https://img.shields.io/badge/twitter-tweet-blue.svg?style=flat-square"/>
