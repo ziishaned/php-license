@@ -2,7 +2,7 @@
 
 namespace Ziishaned\PhpLicense;
 
-use Exception;
+use Ziishaned\PhpLicense\Exception\BaseException;
 
 class PhpLicense
 {
@@ -13,20 +13,20 @@ class PhpLicense
      * @param string $privateKey
      *
      * @return string
-     * @throws \Exception
+     * @throws \Ziishaned\PhpLicense\Exception\BaseException
      */
     public static function generate($data, $privateKey)
     {
         $key = openssl_pkey_get_private($privateKey);
         if (!$key) {
-            throw new Exception("OpenSSL: Unable to get private key");
+            throw new BaseException("OpenSSL: Unable to get private key");
         }
 
         $success = openssl_private_encrypt(json_encode($data), $signature, $key);
         openssl_free_key($key);
 
         if (!$success) {
-            throw new Exception("OpenSSL: Enable to generate signature");
+            throw new BaseException("OpenSSL: Enable to generate signature");
         }
 
         $sign_b64 = base64_encode($signature);
@@ -41,7 +41,7 @@ class PhpLicense
      * @param string $publicKey
      *
      * @return string
-     * @throws \Exception
+     * @throws \Ziishaned\PhpLicense\Exception\BaseException
      */
     public static function parse($licenseKey, $publicKey)
     {
@@ -49,14 +49,14 @@ class PhpLicense
 
         $key = openssl_pkey_get_public($publicKey);
         if (!$key) {
-            throw new Exception("OpenSSL: Unable to get public key");
+            throw new BaseException("OpenSSL: Unable to get public key");
         }
 
         $success = openssl_public_decrypt($sign, $decryptedData, $publicKey);
         openssl_free_key($key);
 
         if (!$success) {
-            throw new Exception("OpenSSL: Enable to generate signature");
+            throw new BaseException("OpenSSL: Enable to generate signature");
         }
 
         return json_decode($decryptedData, true);

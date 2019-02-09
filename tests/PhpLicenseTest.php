@@ -4,6 +4,7 @@ namespace Tests;
 
 use PHPUnit\Framework\TestCase;
 use Ziishaned\PhpLicense\PhpLicense;
+use Ziishaned\PhpLicense\Exception\BaseException;
 
 /**
  * Class PhpLicenseTest
@@ -14,7 +15,7 @@ use Ziishaned\PhpLicense\PhpLicense;
 class PhpLicenseTest extends TestCase
 {
     /**
-     * @throws \Exception
+     * @throws \Ziishaned\PhpLicense\Exception\BaseException
      */
     public function testCanGenerateLicenseKey()
     {
@@ -28,9 +29,6 @@ class PhpLicenseTest extends TestCase
         $this->assertIsString($license);
     }
 
-    /**
-     * @throws \Exception
-     */
     public function testCanThrowExceptionForWrongPublicKey()
     {
         $data       = [
@@ -40,14 +38,14 @@ class PhpLicenseTest extends TestCase
 
         try {
             PhpLicense::generate($data, $privateKey);
-        } catch (\Exception $e) {
+        } catch (BaseException $e) {
             $this->assertIsString($e->getMessage());
-            $this->assertEquals($e->getMessage(), 'OpenSSL: Unable to get private key');
+            $this->assertStringContainsString('OpenSSL: Unable to get private key', $e->getMessage());
         }
     }
 
     /**
-     * @throws \Exception
+     * @throws \Ziishaned\PhpLicense\Exception\BaseException
      */
     public function testCanParseLicenseKey()
     {
@@ -71,9 +69,9 @@ class PhpLicenseTest extends TestCase
 
         try {
             PhpLicense::parse($licenseKey, $privateKey);
-        } catch (\Exception $e) {
+        } catch (BaseException $e) {
             $this->assertIsString($e->getMessage());
-            $this->assertEquals($e->getMessage(), 'OpenSSL: Unable to get public key');
+            $this->assertStringContainsString('OpenSSL: Unable to get public key', $e->getMessage());
         }
     }
 }
