@@ -45,6 +45,8 @@ Before running the following code make sure you have the `public_key` and `priva
 
 ### Generating
 
+Use the following code to generate the license key:
+
 ```php
 <?php
 
@@ -73,6 +75,8 @@ The above code will output the following result:
 ```
 
 ### Parsing
+
+Use the following code to parse the license key:
 
 ```php
 <?php
