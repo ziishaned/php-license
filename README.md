@@ -1,6 +1,6 @@
 <h1 align="center">
 	<img height="90" src="https://image.flaticon.com/icons/svg/21/21226.svg" alt="Dumper.js - Dumps information about a variable" />
-	<br> PHP RSA
+	<br> PHP License
 </h1>
 <p align="center">
   <a href="https://codecov.io/gh/ziishaned/php-rsa">
