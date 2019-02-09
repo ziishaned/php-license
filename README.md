@@ -19,6 +19,10 @@
 
 <p align="center"><code>php-license</code> is a library for generating and parsing license files.</p>
 
+## Requirements
+
+* [OpenSSL](https://www.openssl.org/)
+
 ## Generating Key Pair
 
 Make sure OpenSSL is configured on your machine.
