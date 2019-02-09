@@ -1,6 +1,6 @@
 {
   "name": "ziishaned/php-rsa",
-  "description": "",
+  "description": "PHP library for generation and parsing license files",
   "authors": [
     {
       "name": "Zeeshan Ahmad",
