@@ -1,6 +1,6 @@
 {
     "name": "ziishaned/php-license",
-    "description": "PHP library for generating and parsing license files",
+    "description": "PHP library for generating and parsing license",
     "type": "library",
     "authors": [
         {
