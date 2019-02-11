@@ -26,7 +26,7 @@ class PhpLicense
         openssl_free_key($key);
 
         if (!$success) {
-            throw new BaseException("OpenSSL: Enable to generate signature");
+            throw new BaseException("OpenSSL: Unable to generate signature");
         }
 
         $sign_b64 = base64_encode($signature);
@@ -56,7 +56,7 @@ class PhpLicense
         openssl_free_key($key);
 
         if (!$success) {
-            throw new BaseException("OpenSSL: Enable to generate signature");
+            throw new BaseException("OpenSSL: Unable to generate signature");
         }
 
         return json_decode($decryptedData, true);
